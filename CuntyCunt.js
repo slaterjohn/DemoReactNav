@@ -3,38 +3,31 @@ import {
 	Text,
 	View,
 	Button,
-	StyleSheet
+	StyleSheet,
+	StatusBar
 } from 'react-native';
 
 
-export default class HomeScreen extends Component {
+export default class CuntyCunt extends Component {
 
 	static navigationOptions = {
-		title: 'Welcome',
+		title: 'Cunts',
 	};
 
 	render() {
-		const { navigate } = this.props.navigation;
+		const { navigate, goBack, state } = this.props.navigation;
 
 		return (
 			<View style={styles.container}>
+				<StatusBar backgroundColor="blue" barStyle="light-content" />
 				<Text style={styles.welcome}>
-					Welcome to React Native!
-				</Text>
-				<Text style={styles.instructions}>
-					To get started, edit index.ios.js
-				</Text>
-				<Text style={styles.instructions}>
-					Press Cmd+R to reload,{'\n'}
-					Cmd+D or shake for dev menu
+					FUCK OFF {this.props.navigation.state.params.fuck}
 				</Text>
 				<Button
-		          onPress={() => navigate('Page1', {
-					  fuck: "yes",
-					  onBack: (value)=>{
-						  console.log('Function to happen on Back click');
-					  }
-				  })}
+		          onPress={() => {
+					  this.props.navigation.state.params.onBack();
+					  goBack();
+				  }}
 		          title="Chat with Lucy"
 		        />
 			</View>
